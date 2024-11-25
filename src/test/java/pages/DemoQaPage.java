@@ -1,16 +1,16 @@
 package pages;
 
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.Condition;
 import data.ValidData;
-import elements.Buttons;
 import elements.TextField;
 
+
 import java.io.File;
+import java.time.Duration;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$x;
-import static data.ValidData.city;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DemoQaPage {
@@ -98,9 +98,28 @@ public class DemoQaPage {
         return this;
     }
     public DemoQaPage submitButtonClick(){
+        $(submitButtonSelector).scrollIntoView(true);
+        $(submitButtonSelector).shouldBe(Condition.visible, Duration.ofSeconds(30));
         $(submitButtonSelector).click();
         return this;
 
     }
+    public DemoQaPage checkColorName(){
+        $(nameSelector).shouldHave(Condition.cssValue("border-color", ValidData.color));
+        return this;
 
-}
+    };
+    public DemoQaPage checkColorLastName(){
+        $(lastNameSelector).shouldHave(Condition.cssValue("border-color", ValidData.color));
+        return this;
+    };
+    public DemoQaPage checkColorGender(){
+        $x("//*[@id=\"genterWrapper\"]/div[2]/div[1]/label").shouldHave(Condition.cssValue("color", ValidData.colorGender));
+        return this;
+    }
+    public DemoQaPage checkColorPhone(){
+        $(phoneNumberSelector).shouldHave(Condition.cssValue("border-color", ValidData.color));
+        return this;
+    }
+
+};

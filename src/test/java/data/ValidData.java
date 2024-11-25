@@ -28,6 +28,8 @@ public class ValidData {
     public final static String fullAdress = "Rajasthan Jaipur";
     public final static String subject = "English";
     public final static String hobby = "Music";
+    public final static String color = "rgb(220, 53, 69)";
+    public final static String colorGender = "rgba(220, 53, 69, 1)";
 
 
 }

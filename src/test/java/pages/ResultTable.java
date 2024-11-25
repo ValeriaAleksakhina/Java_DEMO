@@ -18,6 +18,7 @@ public class ResultTable {
     public final static String resultImageValueSelector = "//tbody/tr[8]/td[2]";
     public final static String resultAdressValueSelector = "//tbody/tr[9]/td[2]";
     public final static String resultFullAdressValueSelector = "//tbody/tr[10]/td[2]";
+    public final static String closeButtonSelector = "#closeLargeModal";
 
     public void checkName(){
         Assertions.assertEquals(ValidData.nameResult, $x(resultNameValueSelector).getText(), "Имя не соответствует заданному");
@@ -48,5 +49,10 @@ public class ResultTable {
     }
     public void checkFullAdress(){
         Assertions.assertEquals(ValidData.fullAdress, $x(resultFullAdressValueSelector).getText(), "адрес не соответствует заданному");
+    }
+    public ResultTable closeButtonClick(){
+        $(closeButtonSelector).click();
+        return this;
+
     }
 }

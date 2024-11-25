@@ -7,13 +7,12 @@ import pages.DemoQaPage;
 import pages.ResultTable;
 import settings.BaseTest;
 
-import static com.codeborne.selenide.Selenide.$;
 
 public class UITest extends BaseTest {
     DemoQaPage demoQaPage = new DemoQaPage();
     ResultTable resultTable = new ResultTable();
     @Test
-    void openPage(){
+    void testForm(){
        demoQaPage.openPage(ValidData.getUrl())
                  .titleTextCheck(new ValidData().getText())
                  .fillName()
@@ -38,17 +37,21 @@ public class UITest extends BaseTest {
         resultTable.checkImage();
         resultTable.checkAdress();
         resultTable.checkFullAdress();
+        resultTable.closeButtonClick();
+    }
+
+    @Test
+    void fieldsValidation(){
+        demoQaPage.openPage(ValidData.getUrl())
+                .submitButtonClick();
+        Configuration.timeout = 10000;
+        demoQaPage.checkColorName()
+        .checkColorLastName()
+        .checkColorGender()
+        .checkColorPhone();
 
 
     }
-
-
-
-
-
-
-
-
 }
 
 
