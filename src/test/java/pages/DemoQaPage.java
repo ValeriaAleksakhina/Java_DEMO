@@ -2,6 +2,9 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import data.ValidData;
+import elements.Checkbox;
+import elements.DateFields;
+import elements.RadioButtons;
 import elements.TextField;
 
 
@@ -15,62 +18,57 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DemoQaPage {
     private final TextField textField = new TextField("Название формы", $(".text-center"));
+    private final TextField nameSelector = new TextField("Имя", $("#firstName"));
+    private final TextField lastNameSelector = new TextField("Фамилия", $("#lastName"));
+    private final TextField userEmailSelector = new TextField("Электронная почта", $("#userEmail"));
+    private final RadioButtons genderSelector = new RadioButtons("Пол", $("#gender-radio-2"));
+    private final TextField phoneNumberSelector = new TextField("Телефон", $("#userNumber"));
+    private final DateFields dateOfBirthSelector = new DateFields($("#dateOfBirthInput"), $(".react-datepicker__month-select"), $(".react-datepicker__year-select"), $x("//DIV[@class='react-datepicker__day react-datepicker__day--003 react-datepicker__day--weekend'][text()='3']"));
+    private final TextField subjectSelector = new TextField("Subject", $("subjectsInput"));
+    private final Checkbox hobbiesSelector = new Checkbox($("hobbiesWrapper", "хобби"));
+    private final TextField fileSelector = new TextField("Изображение", $("uploadPicture"));
+    private final TextField currentAddressSelector = new TextField("Текущий адрес", $("currentAddress"));
+    private final TextField stateSelector = new TextField("Штат", $x("//div[@id=\"stateCity-wrapper\"]//div[@id=\"state\"]"));
+    private final TextField stateNameSelector = new TextField("Название штата", $("#react-select-3-option-3"));
+    private final TextField citySelector = new TextField("Город", $x("//div[@id=\"stateCity-wrapper\"]//div[@id=\"city\"]"));
+    private final TextField cityNameSelector = new TextField("Название города", $("#react-select-4-option-0"));
+    private final TextField submitButtonSelector = new TextField("Кнопка Submit", $("#submit"));
 
-    // объявление селекторов
-    public final static String nameSelector = "#firstName";
-    public final static String lastNameSelector = "#lastName";
-    public final static String userEmailSelector = "#userEmail";
-    public final static String genderSelector = "#gender-radio-2";
-    public final static String phoneNumberSelector = "#userNumber";
-    public final static String dateOfBirthSelector = "#dateOfBirthInput";
-    public final static String dateOfBirthMonthSelector = ".react-datepicker__month-select";
-    public final static String dateOfBirthYearSelector = ".react-datepicker__year-select";
-    public final static String dateOfBirthDate = "//DIV[@class='react-datepicker__day react-datepicker__day--003 react-datepicker__day--weekend'][text()='3']";
-    public final static String subjectSelector = "#subjectsInput";
-    public final static String hobbiesSelector = "#hobbiesWrapper";
-    public final static String fileSelector = "#uploadPicture";
-    public final static String currentAddressSelector = "#currentAddress";
-    public final static String stateSelector = "//div[@id=\"stateCity-wrapper\"]//div[@id=\"state\"]";
-    public final static String stateNameSelector = "#react-select-3-option-3";
-    public final static String citySelector = "//div[@id=\"stateCity-wrapper\"]//div[@id=\"city\"]";
-    public final static String cityNameSelector = "#react-select-4-option-0";
-    public final static String submitButtonSelector = "#submit";
+    // объявление селекторов $("hobbiesWrapper"))
+
 
     // методы заполнения полей
     public DemoQaPage fillName(){
-        $(nameSelector).setValue(ValidData.name);
+        nameSelector.fillFieldValue(ValidData.name);
         return this;
     }
     public DemoQaPage fillLastName(){
-        $(lastNameSelector).setValue(ValidData.lastName);
+        lastNameSelector.fillFieldValue(ValidData.lastName);
         return this;
     }
     public DemoQaPage fillEmail(){
-        $(userEmailSelector).setValue(ValidData.userEmail);
+        userEmailSelector.fillFieldValue(ValidData.userEmail);
         return this;
     }
     public DemoQaPage fillUserNumber(){
-        $(phoneNumberSelector).setValue(ValidData.userNumber);
+        phoneNumberSelector.fillFieldValue(ValidData.userNumber);
         return this;
     }
     public DemoQaPage fillGender(){
-        $(genderSelector).parent().click();
+        genderSelector.radioSetValue();
         return this;
     }
     public DemoQaPage fillDate(){
-        $(dateOfBirthSelector).parent().click();
-        $(dateOfBirthMonthSelector).selectOption("February");
-        $(dateOfBirthYearSelector).selectOption("1985");
-        $x(dateOfBirthDate).click();
+        dateOfBirthSelector.DateSetValue("February", "1985");
         return this;
-
     }
+
     public DemoQaPage fillSubject(){
-        $(subjectSelector).setValue(ValidData.subject).pressEnter();
+        subjectSelector.fillSubjectValue(ValidData.subject);
         return this;
     }
     public DemoQaPage fillHobbies(){
-        $(hobbiesSelector).$(byText(ValidData.hobby)).click();
+        hobbiesSelector.fillHobbyField
         return this;
 
     }

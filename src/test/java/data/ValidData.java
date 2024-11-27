@@ -1,5 +1,7 @@
 package data;
 
+import java.net.Proxy;
+
 public class ValidData {
     public String getText() {
         return text;
