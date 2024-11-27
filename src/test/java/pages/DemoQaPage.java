@@ -25,7 +25,7 @@ public class DemoQaPage {
     private final TextField phoneNumberSelector = new TextField("Телефон", $("#userNumber"));
     private final DateFields dateOfBirthSelector = new DateFields($("#dateOfBirthInput"), $(".react-datepicker__month-select"), $(".react-datepicker__year-select"), $x("//DIV[@class='react-datepicker__day react-datepicker__day--003 react-datepicker__day--weekend'][text()='3']"));
     private final TextField subjectSelector = new TextField("Subject", $("subjectsInput"));
-    private final Checkbox hobbiesSelector = new Checkbox($("hobbiesWrapper", "хобби"));
+    private final Checkbox hobbiesSelector = new Checkbox("Хобби", $("hobbiesWrapper"));
     private final TextField fileSelector = new TextField("Изображение", $("uploadPicture"));
     private final TextField currentAddressSelector = new TextField("Текущий адрес", $("currentAddress"));
     private final TextField stateSelector = new TextField("Штат", $x("//div[@id=\"stateCity-wrapper\"]//div[@id=\"state\"]"));
@@ -34,7 +34,7 @@ public class DemoQaPage {
     private final TextField cityNameSelector = new TextField("Название города", $("#react-select-4-option-0"));
     private final TextField submitButtonSelector = new TextField("Кнопка Submit", $("#submit"));
 
-    // объявление селекторов $("hobbiesWrapper"))
+    // объявление селекторов
 
 
     // методы заполнения полей
@@ -68,22 +68,22 @@ public class DemoQaPage {
         return this;
     }
     public DemoQaPage fillHobbies(){
-        hobbiesSelector.fillHobbyField
+        hobbiesSelector.fillHobby(ValidData.hobby);
         return this;
 
     }
-    public DemoQaPage loadFile(){
-        $(fileSelector).uploadFile(new File(ValidData.filePath));
-        return this;
-    }
-    public DemoQaPage fillStateAndCity(){
-        $(currentAddressSelector).setValue(ValidData.currentAddress);
-        $x(stateSelector).click();
-        $(stateNameSelector).click();
-        $x(citySelector).click();
-        $(cityNameSelector).click();
-        return this;
-    }
+//    public DemoQaPage loadFile(){
+//        $(fileSelector).uploadFile(new File(ValidData.filePath));
+//        return this;
+//    }
+//    public DemoQaPage fillStateAndCity(){
+//        $(currentAddressSelector).setValue(ValidData.currentAddress);
+//        $x(stateSelector).click();
+//        $(stateNameSelector).click();
+//        $x(citySelector).click();
+//        $(cityNameSelector).click();
+//        return this;
+//    }
 
 
 
