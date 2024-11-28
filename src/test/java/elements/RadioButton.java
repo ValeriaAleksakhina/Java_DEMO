@@ -5,18 +5,17 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
 
-public class RadioButtons {
+public class RadioButton {
     private String name;
     private SelenideElement selector;
 
-    public RadioButtons(String name, SelenideElement selector) {
+    public RadioButton(String name, SelenideElement selector) {
         this.name = name;
         this.selector = selector;
     }
 
-    public RadioButtons radioSetValue(){
-        selector.shouldBe(Condition.visible, Duration.ofSeconds(10))
-                .parent().click();
-        return this;
+    public void radioSetValue(){
+        selector.click();
+
     }
 }

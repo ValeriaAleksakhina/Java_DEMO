@@ -22,6 +22,7 @@
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
         <maven.surifire.plugin.version>3.1.2</maven.surifire.plugin.version>
         <aspectj.version>1.9.19</aspectj.version>
+
     </properties>
 
     <dependencies>
@@ -109,9 +110,6 @@
                 <version>${maven.surifire.plugin.version}</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
                     <properties>
                         <property>
                             <name>listener</name>

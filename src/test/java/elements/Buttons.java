@@ -15,6 +15,7 @@ import java.time.Duration;
         }
 
         public Buttons buttonClick(){
+            selector.scrollIntoView(true);
             selector.shouldBe(Condition.visible, Duration.ofSeconds(10))
                     .click();
             return this;

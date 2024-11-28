@@ -2,9 +2,12 @@ package elements;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import data.ValidData;
+import org.junit.jupiter.api.Assertions;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.visible;
 import static java.time.Duration.ofSeconds;
 
@@ -29,9 +32,13 @@ public class TextField {
                 .setValue(value);
     }
 
-    public void fillSubjectValue(String value){
-        selector.setValue(value).pressEnter();
+
+    public void checkColor(String expectedColor){
+        String actualColor = selector.getCssValue("border-color");
+        Assertions.assertEquals(actualColor, expectedColor);
+    }
+
     }
 
 
-}
+

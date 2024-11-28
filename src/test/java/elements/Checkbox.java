@@ -14,8 +14,8 @@ public class Checkbox {
         this.selector = selector;
 
     }
-    public void fillHobby(String value){
-        selector.$(byText(ValidData.hobby)).click();
+    public void setCheked(String name, boolean checked){
+        selector.click();
     }
 
 
