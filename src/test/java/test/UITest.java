@@ -46,7 +46,7 @@ public class UITest extends BaseTest {
     void fieldsValidation(){
         demoQaPage.openPage(ValidData.getUrl())
                 .submitButtonClick();
-        Configuration.timeout = 10000;
+        Configuration.timeout = 5000;
         demoQaPage.checkColorName()
         .checkColorLastName()
         .checkColorGender()

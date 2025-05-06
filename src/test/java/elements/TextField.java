@@ -35,7 +35,7 @@ public class TextField {
 
     public void checkColor(String expectedColor){
         String actualColor = selector.getCssValue("border-color");
-        Assertions.assertEquals(actualColor, expectedColor);
+        Assertions.assertEquals(expectedColor, actualColor);
     }
 
     }

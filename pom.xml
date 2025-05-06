@@ -17,7 +17,7 @@
         <junit-jupiter>5.9.3</junit-jupiter>
         <junit-pioneer>2.0.1</junit-pioneer>
         <allure.version>2.22.2</allure.version>
-        <allure.maven.version>2.12.0</allure.maven.version>
+        <allure.maven.version>2.15.2</allure.maven.version>
         <slf4j-simple.version>2.0.7</slf4j-simple.version>
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
         <maven.surifire.plugin.version>3.1.2</maven.surifire.plugin.version>
@@ -75,6 +75,24 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j-simple.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
