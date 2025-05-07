@@ -32,11 +32,11 @@ public class TextField {
                 .setValue(value);
     }
 
-
-    public void checkColor(String expectedColor){
-        String actualColor = selector.getCssValue("border-color");
-        Assertions.assertEquals(expectedColor, actualColor);
+    public String getCssValue(String Css) {
+        var color = selector.getCssValue(Css);
+        return color;
     }
+
 
     }
 

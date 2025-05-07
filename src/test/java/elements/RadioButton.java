@@ -18,4 +18,9 @@ public class RadioButton {
         selector.click();
 
     }
+
+    public String getCssValue(String Css) {
+        var color = selector.getCssValue(Css);
+        return color;
+    }
 }

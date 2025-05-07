@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import data.ValidData;
 import elements.*;
+import org.junit.jupiter.api.Assertions;
 
 
 import static com.codeborne.selenide.Selenide.*;
@@ -96,21 +97,31 @@ public class DemoQaPage {
         return this;
 
     }
-    public DemoQaPage checkColorName(){
-        nameSelector.checkColor(ValidData.color);
-        return this;
-    };
-   public DemoQaPage checkColorLastName(){
-        lastNameSelector.checkColor(ValidData.color);
-        return this;
-    };
-    public DemoQaPage checkColorGender(){
-        colorGenderSelector.checkColor(ValidData.colorGender);
+
+    public DemoQaPage checkColorName(String expectedColor){
+        String actualColor = nameSelector.getCssValue("border-color");
+        Assertions.assertEquals(expectedColor, actualColor);
         return this;
     }
-    public DemoQaPage checkColorPhone(){
-        phoneNumberSelector.checkColor(ValidData.color);
+
+    public DemoQaPage checkColorLastName(String expectedColor){
+        String actualColor = lastNameSelector.getCssValue("border-color");
+        Assertions.assertEquals(expectedColor, actualColor);
         return this;
     }
+
+    public DemoQaPage checkColorGender(String expectedColor){
+        String actualColor = genderSelector.getCssValue("border-color");
+        Assertions.assertEquals(expectedColor, actualColor);
+        return this;
+    }
+
+    public DemoQaPage checkColorPhone(String expectedColor){
+        String actualColor = phoneNumberSelector.getCssValue("border-color");
+        Assertions.assertEquals(expectedColor, actualColor);
+        return this;
+    }
+
+
 
 }
