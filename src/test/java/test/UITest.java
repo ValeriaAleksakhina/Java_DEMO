@@ -1,6 +1,7 @@
 package test;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import data.ValidData;
 import org.junit.jupiter.api.Test;
 import pages.DemoQaPage;
@@ -45,9 +46,10 @@ public class UITest extends BaseTest {
 
     @Test
     void fieldsValidation() {
-        demoQaPage.openPage(ValidData.getUrl())
-                .submitButtonClick();
-        Configuration.timeout = 10000;
+        demoQaPage.openPage(ValidData.getUrl());
+        Configuration.timeout = 5000;
+        demoQaPage.submitButtonClick();
+        Selenide.sleep(5000);
         demoQaPage.checkColorName(ValidData.color)
                 .checkColorLastName(ValidData.color)
                 .checkColorGender(ValidData.color)
